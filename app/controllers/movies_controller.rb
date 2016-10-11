@@ -21,4 +21,11 @@ class MoviesController < ApplicationController
 
   def destroy
   end
+
+  def upvote
+    @movie = Movie.find(params[:id])
+    @movie.rank += 1
+    @movie.save
+    redirect_to movie_path
+  end
 end
