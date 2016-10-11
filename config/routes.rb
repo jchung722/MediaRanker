@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   put 'movies/:id/upvote' => 'movies#upvote', as: 'movies_upvote'
 
+  put 'books/:id/upvote' => 'books#upvote', as: 'books_upvote'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
