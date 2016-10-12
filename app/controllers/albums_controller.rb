@@ -8,15 +8,32 @@ class AlbumsController < ApplicationController
   end
 
   def new
+    @album = Album.new
+    @album_method = :post
+    @album_path = "/albums"
   end
 
   def create
+    @album = Album.new
+    @album.name = params[:album][:name]
+    @album.artist = params[:album][:artist]
+    @album.description = params[:album][:description]
+    @album.rank = 0
+    @album.save
+    redirect_to album_path(@album.id)
   end
 
   def edit
+    @album = Album.find(params[:id])
+    @album_method = :put
+    @album_path = album_path
   end
 
   def update
+    Album.update(params[:id], :name => params[:album][:name],
+                              :artist => params[:album][:artist],
+                              :description => params[:album][:description])
+    redirect_to album_path
   end
 
   def destroy
