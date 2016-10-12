@@ -7,7 +7,7 @@ class AlbumsControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show
+    get :show, {id: 1 }
     assert_response :success
   end
 
@@ -17,23 +17,23 @@ class AlbumsControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    get :create
-    assert_response :success
+    post :create
+    assert_response :redirect
   end
 
   test "should get edit" do
-    get :edit
+    get :edit, {id: 1 }
     assert_response :success
   end
 
   test "should get update" do
-    get :update
-    assert_response :success
+    put :update, {id: 1 }
+    assert_response :redirect
   end
 
   test "should get destroy" do
-    get :destroy
-    assert_response :success
+    delete :destroy, {id: 1 }
+    assert_response :redirect
   end
 
 end
