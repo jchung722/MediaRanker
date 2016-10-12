@@ -8,15 +8,32 @@ class BooksController < ApplicationController
   end
 
   def new
+    @book = Book.new
+    @book_method = :post
+    @book_path = "/books"
   end
 
   def create
+    @book = Book.new
+    @book.name = params[:book][:name]
+    @book.author = params[:book][:author]
+    @book.description = params[:book][:description]
+    @book.rank = 0
+    @book.save
+    redirect_to book_path(@book.id)
   end
 
   def edit
+    @book = Book.find(params[:id])
+    @book_method = :put
+    @book_path = book_path
   end
 
   def update
+    Book.update(params[:id], :name => params[:book][:name],
+                              :author => params[:book][:author],
+                              :description => params[:book][:description])
+    redirect_to book_path
   end
 
   def destroy
