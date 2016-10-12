@@ -7,7 +7,7 @@ class BooksControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show, {id: 1 }
+    get :show, {id: books(:rainbow).id}
     assert_response :success
   end
 
@@ -17,22 +17,22 @@ class BooksControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    post :create
+    post :create, {book: {name: "Wow"}}
     assert_response :redirect
   end
 
   test "should get edit" do
-    get :edit, {id: 1 }
+    get :edit, {id: books(:rainbow).id}
     assert_response :success
   end
 
   test "should get update" do
-    put :update, {id: 1 }
+    put :update, {id: books(:rainbow).id}
     assert_response :redirect
   end
 
   test "should get destroy" do
-    delete :destroy, {id: 1 }
+    delete :destroy, {id: books(:rainbow).id}
     assert_response :redirect
   end
 
