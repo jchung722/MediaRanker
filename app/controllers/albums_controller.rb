@@ -19,8 +19,11 @@ class AlbumsController < ApplicationController
     @album.artist = params[:album][:artist]
     @album.description = params[:album][:description]
     @album.rank = 0
-    @album.save
-    redirect_to album_path(@album.id)
+    if @album.save
+      redirect_to album_path(@album.id)
+    else
+      redirect_to new_album_path
+    end
   end
 
   def edit

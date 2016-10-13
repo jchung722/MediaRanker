@@ -19,8 +19,11 @@ class BooksController < ApplicationController
     @book.author = params[:book][:author]
     @book.description = params[:book][:description]
     @book.rank = 0
-    @book.save
-    redirect_to book_path(@book.id)
+    if @book.save
+      redirect_to book_path(@book.id)
+    else
+      redirect_to new_book_path
+    end
   end
 
   def edit
@@ -34,6 +37,7 @@ class BooksController < ApplicationController
                               :author => params[:book][:author],
                               :description => params[:book][:description])
     redirect_to book_path
+    redirect_to edit_book_path(params[:id])
   end
 
   def destroy

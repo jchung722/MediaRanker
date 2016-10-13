@@ -5,3 +5,9 @@ class AlbumTest < ActiveSupport::TestCase
   #   assert true
   # end
 end
+
+test "An album must have a name" do
+  assert albums(:X).valid?
+  albums(:X).name = nil
+  assert_not albums(:X).valid?
+end
