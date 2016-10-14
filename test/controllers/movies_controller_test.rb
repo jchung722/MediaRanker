@@ -1,37 +1,37 @@
 require 'test_helper'
 
 class MoviesControllerTest < ActionController::TestCase
-  test "should get index" do
+  test "should show list of movies" do
     get :index
     assert_response :success
   end
 
-  test "should get show" do
+  test "should show specified movie" do
     get :show, {id: movies(:aladdin).id}
     assert_response :success
   end
 
-  test "should get new" do
+  test "should show new movie form" do
     get :new
     assert_response :success
   end
 
-  test "should get create" do
+  test "should create new movie" do
     post :create, {movie: {name: "Wow"}}
     assert_response :redirect
   end
 
-  test "should get edit" do
+  test "should show movie edit form" do
     get :edit, {id: movies(:aladdin).id}
     assert_response :success
   end
 
-  test "should get update" do
+  test "should update movie info" do
     put :update, {id: movies(:aladdin).id}
     assert_response :redirect
   end
 
-  test "should get destroy" do
+  test "should delete movie" do
     delete :destroy, {id: movies(:aladdin).id}
     assert_response :redirect
   end
