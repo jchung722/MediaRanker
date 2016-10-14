@@ -19,8 +19,11 @@ class MoviesController < ApplicationController
     @movie.director = params[:movie][:director]
     @movie.description = params[:movie][:description]
     @movie.rank = 0
-    @movie.save
-    redirect_to movie_path(@movie.id)
+    if @movie.save
+      redirect_to movie_path(@movie.id)
+    else
+      redirect_to new_movie_path
+    end
   end
 
   def edit

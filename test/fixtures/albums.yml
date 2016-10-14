@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  artist: MyString
-  description: MyString
+X:
+  name: X
+  artist: Ed Sheeran
+  description: Lots of cool songs.
   rank: 1
 
-two:
-  name: MyString
-  artist: MyString
-  description: MyString
+lonely:
+  name: The Lonely Hour
+  artist: Ed Sheeran
+  description: Lots of sad songs.
   rank: 1
