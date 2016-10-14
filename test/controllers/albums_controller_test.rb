@@ -1,37 +1,37 @@
 require 'test_helper'
 
 class AlbumsControllerTest < ActionController::TestCase
-  test "should get index" do
+  test "should show list of albums" do
     get :index
     assert_response :success
   end
 
-  test "should get show" do
+  test "should show specified album" do
     get :show, {id: albums(:X).id}
     assert_response :success
   end
 
-  test "should get new" do
+  test "should show new album form" do
     get :new
     assert_response :success
   end
 
-  test "should get create" do
+  test "should create new album" do
     post :create, {album: {name: "Wow"}}
     assert_response :redirect
   end
 
-  test "should get edit" do
+  test "should show album edit form" do
     get :edit, {id: albums(:X).id}
     assert_response :success
   end
 
-  test "should get update" do
+  test "should update album information" do
     put :update, {id: albums(:X).id}
     assert_response :redirect
   end
 
-  test "should get destroy" do
+  test "should destroy album" do
     delete :destroy, {id: albums(:X).id}
     assert_response :redirect
   end
