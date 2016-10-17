@@ -36,4 +36,9 @@ class AlbumsControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
+  test "should update album information with rank" do
+    put :upvote, {id: albums(:X).id}
+    assert_response :redirect
+  end
+
 end

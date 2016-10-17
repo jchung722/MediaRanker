@@ -11,7 +11,7 @@
   <%= submit_tag "Upvote", class: "success hollow button" %>
 <% end %>
 
-<%= link_to("Edit " + @movie.name, edit_movie_path) %>
+<%= link_to("Edit " + @movie.name, edit_movie_path, class: "secondary hollow button") %>
 <%= link_to("DELETE", movie_path, class: "alert button", method: :delete, data: {confirm: "Are you sure?"})%>
-<%= link_to("View All Movies", movies_path) %>
-<%= link_to("View All Media", root_path) %>
+<%= link_to("View All Movies", movies_path, class: "secondary hollow button") %>
+<%= link_to("View All Media", root_path, class: "secondary hollow button") %>

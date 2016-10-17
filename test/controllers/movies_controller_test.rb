@@ -36,4 +36,9 @@ class MoviesControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
+  test "should update movie information with rank" do
+    put :upvote, {id: movies(:aladdin).id}
+    assert_response :redirect
+  end
+
 end
