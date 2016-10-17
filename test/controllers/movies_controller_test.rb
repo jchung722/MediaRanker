@@ -17,7 +17,9 @@ class MoviesControllerTest < ActionController::TestCase
   end
 
   test "should create new movie" do
-    post :create, {movie: {name: "Wow"}}
+    assert_difference("Movie.count", 1) do
+      post :create, {movie: {name: "Wow"}}
+    end
     assert_response :redirect
   end
 
@@ -32,7 +34,9 @@ class MoviesControllerTest < ActionController::TestCase
   end
 
   test "should delete movie" do
-    delete :destroy, {id: movies(:aladdin).id}
+    assert_difference("Movie.count", -1) do
+      delete :destroy, {id: movies(:aladdin).id}
+    end
     assert_response :redirect
   end
 
