@@ -10,7 +10,7 @@
     <td><%= link_to(movie.name, movie_path(movie.id)) %></td>
     <td>
       <%= form_tag movies_upvote_path(movie.id), class: "edit_movies", method: :put do %>
-        <%= submit_tag "Upvote", class: "upvote_button" %>
+        <%= submit_tag "Upvote", class: "success hollow button" %>
       <% end %>
     </td>
   </tr>

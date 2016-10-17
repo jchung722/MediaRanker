@@ -17,7 +17,9 @@ class BooksControllerTest < ActionController::TestCase
   end
 
   test "should create new book" do
-    post :create, {book: {name: "Wow"}}
+    assert_difference("Book.count", 1) do
+      post :create, {book: {name: "Wow"}}
+    end
     assert_response :redirect
   end
 
@@ -32,7 +34,14 @@ class BooksControllerTest < ActionController::TestCase
   end
 
   test "should delete book" do
-    delete :destroy, {id: books(:rainbow).id}
+    assert_difference("Book.count", -1) do
+      delete :destroy, {id: books(:rainbow).id}
+    end
+    assert_response :redirect
+  end
+
+  test "should update book information with rank" do
+    put :upvote, {id: books(:rainbow).id}
     assert_response :redirect
   end
 

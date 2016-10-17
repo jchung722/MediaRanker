@@ -8,10 +8,10 @@
 <p><%= @album.description %></p>
 
 <%= form_tag albums_upvote_path, class: "edit_albums", method: :put do %>
-  <%= submit_tag "Upvote", class: "upvote_button" %>
+  <%= submit_tag "Upvote", class: "success hollow button" %>
 <% end %>
 
-<%= link_to("Edit " + @album.name, edit_album_path) %>
-<%= link_to("DELETE", album_path, method: :delete, data: {confirm: "Are you sure?"}) %>
-<%= link_to("View All Albums", albums_path) %>
-<%= link_to("View All Media", root_path) %>
+<%= link_to("Edit " + @album.name, edit_album_path, class: "secondary hollow button") %>
+<%= link_to("DELETE", album_path, class: "alert button", method: :delete, data: {confirm: "Are you sure?"}) %>
+<%= link_to("View All Albums", albums_path, class: "secondary hollow button") %>
+<%= link_to("View All Media", root_path, class: "secondary hollow button") %>

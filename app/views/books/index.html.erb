@@ -10,7 +10,7 @@
     <td><%= link_to(book.name, book_path(book.id)) %></td>
     <td>
       <%= form_tag books_upvote_path(book.id), class: "edit_books", method: :put do %>
-        <%= submit_tag "Upvote", class: "upvote_button" %>
+        <%= submit_tag "Upvote", class: "success hollow button" %>
       <% end %>
     </td>
   </tr>

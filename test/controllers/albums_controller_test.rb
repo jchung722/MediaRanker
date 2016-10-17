@@ -17,7 +17,9 @@ class AlbumsControllerTest < ActionController::TestCase
   end
 
   test "should create new album" do
-    post :create, {album: {name: "Wow"}}
+    assert_difference("Album.count", 1) do
+      post :create, {album: {name: "Wow"}}
+    end
     assert_response :redirect
   end
 
@@ -32,7 +34,13 @@ class AlbumsControllerTest < ActionController::TestCase
   end
 
   test "should destroy album" do
-    delete :destroy, {id: albums(:X).id}
+    assert_difference("Album.count", -1) do
+      delete :destroy, {id: albums(:X).id}
+    end
+  end
+
+  test "should update album information with rank" do
+    put :upvote, {id: albums(:X).id}
     assert_response :redirect
   end
 
