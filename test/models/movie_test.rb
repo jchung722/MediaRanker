@@ -12,4 +12,10 @@ class MovieTest < ActiveSupport::TestCase
     assert_not movies(:mulan).valid?
   end
 
+  test "upvote should raise rank count" do
+    assert_difference("movies(:mulan).rank", 1) do
+      movies(:mulan).upvote
+    end
+  end
+
 end

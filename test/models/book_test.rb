@@ -11,4 +11,10 @@ class BookTest < ActiveSupport::TestCase
     assert_not books(:corduroy).valid?
   end
 
+  test "upvote should raise rank count" do
+    assert_difference("books(:corduroy).rank", 1) do
+      books(:corduroy).upvote
+    end
+  end
+
 end
