@@ -16,7 +16,7 @@ class AlbumsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create new album" do
+  test "should create new album, raising album count" do
     assert_difference("Album.count", 1) do
       post :create, {album: {name: "Wow"}}
     end
@@ -28,8 +28,11 @@ class AlbumsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update album information" do
-    put :update, {id: albums(:X).id}
+  test "should update album information correctly" do
+    put :update, id: albums(:X), album: {name: "+", artist: "Ed Sheeran", description: "Lots of cool songs."}
+    album = Album.find_by(name: "+")
+
+    assert_equal "Ed Sheeran", album.artist
     assert_response :redirect
   end
 

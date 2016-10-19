@@ -37,7 +37,6 @@ class BooksController < ApplicationController
                               :author => params[:book][:author],
                               :description => params[:book][:description])
     redirect_to book_path
-    redirect_to edit_book_path(params[:id])
   end
 
   def destroy
