@@ -48,8 +48,7 @@ class BooksController < ApplicationController
 
   def upvote
     @book = Book.find(params[:id])
-    @book.rank += 1
-    @book.save
+    @book.upvote
     redirect_to book_path
   end
 end
