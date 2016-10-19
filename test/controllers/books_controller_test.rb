@@ -28,8 +28,11 @@ class BooksControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update book" do
-    put :update, {id: books(:rainbow).id}
+  test "should update book information correctly" do
+    put :update, id: books(:rainbow), book: {name: "The Rainbow Fish", author: "fix author", description: "A fish has beautiful scales."}
+    book = Book.find_by(name: "The Rainbow Fish")
+
+    assert_equal "fix author", book.author
     assert_response :redirect
   end
 

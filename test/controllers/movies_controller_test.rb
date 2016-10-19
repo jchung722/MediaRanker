@@ -28,8 +28,11 @@ class MoviesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update movie info" do
-    put :update, {id: movies(:aladdin).id}
+  test "should update movie information correctly" do
+    put :update, id: movies(:mulan), movie: {name: "Mulan", director: "fix director", description: "When will my reflection show?"}
+    movie = Movie.find_by(name: "Mulan")
+
+    assert_equal "fix director", movie.director
     assert_response :redirect
   end
 

@@ -37,7 +37,6 @@ class BooksController < ApplicationController
                               :author => params[:book][:author],
                               :description => params[:book][:description])
     redirect_to book_path
-    redirect_to edit_book_path(params[:id])
   end
 
   def destroy
@@ -48,8 +47,7 @@ class BooksController < ApplicationController
 
   def upvote
     @book = Book.find(params[:id])
-    @book.rank += 1
-    @book.save
+    @book.upvote
     redirect_to book_path
   end
 end

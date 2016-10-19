@@ -11,4 +11,10 @@ class AlbumTest < ActiveSupport::TestCase
     assert_not albums(:X).valid?
   end
 
+  test "upvote should raise rank count" do
+    assert_difference("albums(:X).rank", 1) do
+      albums(:X).upvote
+    end
+  end
+
 end
